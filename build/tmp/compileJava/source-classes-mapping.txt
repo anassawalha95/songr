@@ -1,5 +1,7 @@
 com/example/songr/SongrApplication.java
  com.example.songr.SongrApplication
+com/example/songr/AlbumRepository.java
+ com.example.songr.AlbumRepository
 com/example/songr/MainController.java
  com.example.songr.MainController
 com/example/songr/Album.java
