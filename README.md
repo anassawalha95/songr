@@ -11,20 +11,32 @@ Is Java web application built with  Spring MVC,and Thymeleaf.
 1. go to `build.gradle` file and add the following dependencies
 
    `dependencies {
+   
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    
     implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+    
     implementation('org.springframework.boot:spring-boot-starter-web')
+    
     runtimeOnly('org.postgresql:postgresql')
+    
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+    
      }`
 
 2. create A database called songr in postgress and add the following fill the following inside your `application.proparties` file:
    
     `spring.datasource.platform=postgres
+    
      spring.datasource.url=jdbc:postgresql://localhost:5432/songr
+     
      spring.datasource.username=<username>
+   
      spring.datasource.password=<password>
+   
      spring.jpa.hibernate.ddl-auto=update`
+     
+3. start your server 
 
 ## Running the application:
 
