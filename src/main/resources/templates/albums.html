@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main th:each="album : ${albums}">
+    <p>Title: <span th:text="${album.getTitle()}"> </span> </p>
+    <p>Artist:  <span th:text="${album.getArtist()}">Length:</span>  </p>
+    <p>Song Count:  <span th:text="${album.getSongCount()}">Length:</span>  </p>
+    <p> Length:  <span th:text="${album.getLength()}">Length:</span>  </p>
+    <img th:src="${album.getImageUrl()}" />
+</main>
+</body>
+</html>
