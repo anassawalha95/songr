@@ -9,9 +9,9 @@ Is Java web application built with  Spring MVC,and Thymeleaf.
 Running the application:
 
 1. Navigate to localhost:8080 for home page
-2. 
+
 3. Navigate to localhost:8080/hello for welcoming page
-4. 
+ 
 5. Navigate to localhost:8080/Captialize/{Any string you like} display you string captialized
-6. 
+ 
 7. Navigate to localhost:8080/albums to view some of the greatest albums of all the time 
