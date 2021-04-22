@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Songr</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card"  th:each="album,iState  : ${album}">
+                <h5 class="card-header">
+                  Album Info
+                </h5>
+                <div class="card-body">
+                    <div class="row">
+
+                    <div class="col-md-6" style="display: block;text-align: center;margin: auto;">
+                        <p class="card-text">
+                            Title: <span class="badge badge-default"  th:text="${album.getTitle()}" >    </span> <br>
+                            Artist:  <span class="badge badge-default" th:text="${album.getArtist()}"></span><br>
+                        Song Count:   <span class="badge badge-default" th:text="${album.getSongCount()}">  </span> <br>
+                        Length:  <span class="badge badge-default" th:text="${album.getLength()}">  </span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <img style=" margin: auto;display: block;"  th:src="${album.getImageUrl()}" />
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center text-info">
+                Album Songs
+            </h3>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Song Title:
+                </th>
+                <th>
+                    Song Length:
+                </th>
+                <th>
+                    Song Track Number:
+                </th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="song, iState : ${album.songs}" >
+
+                <td th:text="${iState.count}">
+
+                </td>
+
+                <td th:text="${song.getTitle()}" >
+
+                </td>
+                <td th:text="${song.getLength()}">
+                </td>
+                <td th:text="${song.getTrackNumber()}">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center text-info">
+                Add New Song
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <form   method="POST">
+                <div class="form-group" >
+                    <label for="title">Song Title</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter Song Title">
+                </div>
+
+                <div class="form-group">
+                    <label for="length"> Song length</label>
+                    <input type="number" class="form-control" id="length" name="length" placeholder="Enter  Song length in Seconds">
+                </div>
+
+                <div class="form-group">
+                    <label for="trackNumber">Song Track Number</label>
+                    <input type="text" class="form-control" id="trackNumber" name="trackNumber" placeholder="Enter Song Track Number">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+</div>
+
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</body>
+</html>
