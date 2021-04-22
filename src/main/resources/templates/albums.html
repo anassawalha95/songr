@@ -1,16 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Songr</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <body>
-<main th:each="album : ${albums}">
-    <p>Title: <span th:text="${album.getTitle()}"> </span> </p>
-    <p>Artist:  <span th:text="${album.getArtist()}">Length:</span>  </p>
-    <p>Song Count:  <span th:text="${album.getSongCount()}">Length:</span>  </p>
-    <p> Length:  <span th:text="${album.getLength()}">Length:</span>  </p>
-    <img th:src="${album.getImageUrl()}" />
-</main>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>
+                    #
+                   </th>
+                    <th>
+                       Album Title
+                    </th>
+                    <th>
+                        Album Artist
+                    </th>
+                    <th>
+                        View Album Details
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr  th:each="album,iState  : ${albums}" >
+                        <td th:text="${iState.count}">
+
+                        </td>
+
+                    <td th:text="${album.getTitle()}" >
+
+                    </td>
+                    <td th:text="${album.getArtist()}">
+                    </td>
+                    <td>
+                        <a th:href = "${'/album/' + album.id}" class="btn btn-info">View Details</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center text-info">
+                Add New Album
+            </h3>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+
+    <form  action="/album" method="post">
+        <div class="form-group" >
+            <label for="title">Album Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Enter Album Title">
+        </div>
+
+        <div class="form-group">
+            <label for="artist">Album Artist </label>
+            <input type="text" class="form-control" id="artist" name="artist"  placeholder="Enter Album Artist">
+        </div>
+
+
+        <div class="form-group">
+            <label for="songsCount">Album Songs Count</label>
+            <input type="number" class="form-control" id="songsCount" name="songsCount" placeholder="Enter Songs Count">
+        </div>
+
+        <div class="form-group">
+            <label for="length">Album Total Songs length</label>
+            <input type="number" class="form-control" id="length" name="length" placeholder="Enter Total Songs length in Seconds">
+        </div>
+
+        <div class="form-group">
+            <label for="imageUrl">Album Image Url</label>
+            <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="Enter Image Url">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+
+</div>
+
+
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
 </body>
 </html>
