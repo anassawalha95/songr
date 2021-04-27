@@ -25,6 +25,9 @@ public class AlbumController {
 
     @GetMapping("/album/{id}")
     public String getDetaislView (@PathVariable(value="id") int id, Model m) {
+
+
+
         m.addAttribute("album", albumRepository.findById(id).get());
 
         return "/details.html";
@@ -38,9 +41,15 @@ public class AlbumController {
             @RequestParam(value ="songsCount") int songCount,
             @RequestParam(value ="length") int length,
             @RequestParam(value ="imageUrl") String imageUrl){
-        System.out.println(title);
-        Album album = new Album(title, artist, songCount, length, imageUrl);
-        albumRepository.save(album);
+        try {
+            System.out.println(title);
+            Album album = new Album(title, artist, songCount, length, imageUrl);
+            albumRepository.save(album);
+
+        }catch (Exception e){
+            System.out.println(e);
+            return new RedirectView("/error");
+        }
         return new RedirectView("/albums");
     }
 

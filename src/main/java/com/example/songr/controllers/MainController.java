@@ -12,6 +12,10 @@ import java.util.List;
 @Controller
 public class MainController {
 
+    @GetMapping("/error")
+    public String error(){
+        return "error.html";
+    }
 
 
     @GetMapping("/helloworld")
