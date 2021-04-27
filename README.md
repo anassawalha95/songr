@@ -49,4 +49,7 @@ Is Java web application built with  Spring MVC,and Thymeleaf.
 2. Navigate to localhost:8080/hello for welcoming page 
 3. Navigate to localhost:8080/Captialize/{Any string you like} display you string captialized
 4. Navigate to localhost:8080/songs to View all songs
-5. Navigate to localhost:8080/albums to view all albums that have been added
+5. Navigate to localhost:8080/albums to view all albums that have been added or add new album 
+6. Navigate to localhost:8080/album/<album #> to view all albums in details also to view its songs also adding new songs to it
+
+
